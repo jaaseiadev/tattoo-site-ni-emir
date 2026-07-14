@@ -23,8 +23,16 @@ const archive = [
   ["/portfolio/pierced-heart.jpg", "Anatomy of Courage", "Black & grey / 08"],
 ];
 
+const sections = [
+  { id: "intro", number: "01", label: "opening", color: "pink" },
+  { id: "artist", number: "02", label: "artist", color: "orange" },
+  { id: "works", number: "03", label: "archive", color: "blue" },
+  { id: "book", number: "04", label: "booking", color: "yellow" },
+];
+
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSection, setActiveSection] = useState("intro");
 
   useEffect(() => {
     const timer = window.setInterval(
@@ -32,6 +40,30 @@ export default function Home() {
       4800,
     );
     return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const folio = document.querySelector<HTMLElement>(".folio");
+    if (!folio) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries.find((entry) => entry.isIntersecting);
+        if (visibleSection) setActiveSection(visibleSection.target.id);
+      },
+      {
+        root: folio,
+        rootMargin: "-22% 0px -68% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach(({ id }) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const showPrevious = () => {
@@ -45,10 +77,17 @@ export default function Home() {
   return (
     <main className="site-shell">
       <aside className="index-tabs" aria-label="Folder index">
-        <a className="index-tab tab-pink" href="#intro"><span>01</span> opening</a>
-        <a className="index-tab tab-orange" href="#artist"><span>02</span> artist</a>
-        <a className="index-tab tab-blue" href="#works"><span>03</span> archive</a>
-        <a className="index-tab tab-yellow" href="#book"><span>04</span> booking</a>
+        {sections.map(({ id, number, label, color }) => (
+          <a
+            className={`index-tab tab-${color} ${activeSection === id ? "is-active" : ""}`}
+            href={`#${id}`}
+            aria-current={activeSection === id ? "location" : undefined}
+            onClick={() => setActiveSection(id)}
+            key={id}
+          >
+            <span>{number}</span> {label}
+          </a>
+        ))}
       </aside>
 
       <div className="folio">
@@ -113,8 +152,8 @@ export default function Home() {
         <section className="spread artist-spread" id="artist">
           <div className="artist-portrait">
             <figure className="portrait-print">
-              <img src="/portfolio/artist-profile.jpg" alt="Emir Soria beside a motorcycle at Agas-Agas Bridge" />
-              <figcaption>Artist portrait · On the road · 2026</figcaption>
+              <img src="/portfolio/artist-img-secondary.jpg" alt="Emir Soria surrounded by pages from his sketchbook" />
+              <figcaption>Artist portrait · Sketchbook studies · 2026</figcaption>
             </figure>
             <figure className="artist-detail-print" aria-hidden="true">
               <img src="/portfolio/compass-bird.jpg" alt="" />

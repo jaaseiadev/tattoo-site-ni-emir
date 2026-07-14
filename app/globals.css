@@ -105,10 +105,41 @@ img { display: block; width: 100%; }
 .header-link { justify-self: end; padding-bottom: 3px; border-bottom: 1px solid; }
 
 .spread {
+  position: relative;
+  isolation: isolate;
   min-height: calc(100dvh - 103px);
   padding: clamp(48px,5.5vw,92px) clamp(24px,4vw,74px);
   scroll-snap-align: start;
 }
+
+.opening-spread > *,
+.artist-spread > * { position: relative; z-index: 1; }
+
+.opening-spread::before,
+.opening-spread::after,
+.artist-spread::before,
+.artist-spread::after,
+.archive-section::before,
+.archive-section::after,
+.booking::before,
+.booking::after,
+.footer::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: grayscale(1) contrast(1.45);
+  mix-blend-mode: multiply;
+  opacity: .065;
+  pointer-events: none;
+}
+
+.opening-spread::before { top: 5%; left: -7%; width: 40%; height: 38%; background-image: url("/doodles/tattoo-doodles-classic.png"); transform: rotate(-8deg); }
+.opening-spread::after { right: -5%; bottom: 2%; width: 34%; height: 37%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(9deg); }
+.artist-spread::before { right: -8%; top: 4%; width: 39%; height: 37%; background-image: url("/doodles/tattoo-doodles-classic.png"); transform: rotate(7deg); }
+.artist-spread::after { left: -6%; bottom: 0; width: 33%; height: 37%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(-7deg); }
 
 .opening-spread {
   display: grid;
@@ -184,7 +215,7 @@ img { display: block; width: 100%; }
 .artist-spread { display: grid; grid-template-columns: minmax(0,.95fr) minmax(420px,1.05fr); gap: clamp(54px,7vw,120px); align-items: center; border-top: 1px solid var(--rule); background: rgba(229,222,206,.38); }
 .artist-portrait { position: relative; min-height: 680px; }
 .portrait-print { position: absolute; top: 2%; left: 8%; width: 72%; margin: 0; padding: 12px 12px 38px; background: #f8f5ec; box-shadow: 0 14px 26px rgba(35,29,20,.25); transform: rotate(-2.4deg); }
-.portrait-print img { height: 570px; object-fit: cover; object-position: 50% 68%; filter: saturate(.72) contrast(1.04); }
+.portrait-print img { height: 570px; object-fit: cover; object-position: 50% 48%; filter: saturate(.72) contrast(1.04); }
 .portrait-print figcaption { margin-top: 10px; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 .artist-detail-print { position: absolute; right: 1%; bottom: 3%; width: 34%; margin: 0; padding: 8px 8px 27px; background: #f8f5ec; box-shadow: 0 9px 18px rgba(35,29,20,.22); transform: rotate(5deg); }
 .artist-detail-print img { height: 210px; object-fit: cover; filter: grayscale(1) contrast(1.1); }
@@ -201,7 +232,10 @@ img { display: block; width: 100%; }
 .artist-facts dd { margin: 0; font-size: 12px; }
 .calligraphy--artist { right: -1%; bottom: -13%; transform: rotate(-7deg); }
 
-.archive-section { position: relative; min-height: 1800px; padding: 130px clamp(24px,4vw,74px) 160px; border-top: 7px solid var(--ink); scroll-snap-align: start; }
+.archive-section { position: relative; isolation: isolate; min-height: 1800px; padding: 130px clamp(24px,4vw,74px) 160px; border-top: 7px solid var(--ink); scroll-snap-align: start; }
+.archive-section::before { top: 18%; left: -8%; width: 42%; height: 31%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(-10deg); }
+.archive-section::after { right: -7%; bottom: 7%; width: 43%; height: 31%; background-image: url("/doodles/tattoo-doodles-classic.png"); transform: rotate(8deg); }
+.archive-heading,.archive-grid { position: relative; z-index: 1; }
 .archive-heading { display: grid; grid-template-columns: 1.4fr .6fr; gap: 60px; align-items: end; }
 .archive-heading > p { max-width: 390px; margin: 0 0 8px; font-size: 17px; line-height: 1.3; letter-spacing: -.025em; }
 .archive-grid { position: relative; min-height: 1300px; margin-top: 95px; }
@@ -223,7 +257,11 @@ img { display: block; width: 100%; }
 .archive-card--8 { top: 1010px; right: 15%; width: 31%; transform: rotate(2deg); }
 .calligraphy--archive { top: 41%; left: 31%; transform: rotate(-9deg); }
 
-.booking { position: relative; min-height: 720px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 90px 24px; background: var(--ink); color: var(--paper); text-align: center; scroll-snap-align: start; }
+.booking { position: relative; isolation: isolate; min-height: 720px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 90px 24px; background: var(--ink); color: var(--paper); text-align: center; scroll-snap-align: start; }
+.booking::before,.booking::after { width: 38%; height: 80%; filter: invert(1) grayscale(1) contrast(1.45); mix-blend-mode: screen; opacity: .09; }
+.booking::before { left: -8%; bottom: -12%; background-image: url("/doodles/tattoo-doodles-classic.png"); transform: rotate(-12deg); }
+.booking::after { right: -7%; top: -8%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(10deg); }
+.booking > * { position: relative; z-index: 1; }
 .booking h2 { font-size: clamp(68px,8vw,132px); }
 .booking h2 span { color: var(--yellow); }
 .booking > p:not(.eyebrow):not(.calligraphy) { max-width: 420px; margin: 35px 0 0; color: rgba(240,236,223,.62); font-size: 13px; }
@@ -231,17 +269,20 @@ img { display: block; width: 100%; }
 .booking-button:hover,.booking-button:focus-visible { background: var(--yellow); color: var(--ink); outline: none; }
 .calligraphy--booking { right: -2%; bottom: 8%; color: rgba(240,236,223,.34); transform: rotate(-7deg); }
 
-.footer { min-height: 230px; display: grid; grid-template-columns: 1fr auto; align-content: center; gap: 45px; padding: 50px clamp(24px,4vw,74px); border-top: 1px solid var(--rule); font-size: 12px; }
+.footer { position: relative; isolation: isolate; min-height: 230px; display: grid; grid-template-columns: 1fr auto; align-content: center; gap: 45px; overflow: hidden; padding: 50px clamp(24px,4vw,74px); border-top: 1px solid var(--rule); font-size: 12px; }
+.footer::before { right: 30%; bottom: -75%; width: 34%; height: 180%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(9deg); opacity: .055; }
+.footer > * { position: relative; z-index: 1; }
 .footer strong { font-size: 22px; letter-spacing: -.055em; }
 .footer p { margin: 6px 0 0; }
 .footer nav { display: flex; gap: 25px; align-items: center; }
 .footer nav a { border-bottom: 1px solid; }
 .copyright { grid-column: 1/-1; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 
-.index-tabs { position: fixed; z-index: 1; top: 50%; right: max(12px,calc((100vw - 1700px)/2 - 16px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
-.index-tab { position: relative; width: 80px; height: clamp(120px,17vh,165px); display: flex; align-items: center; gap: 11px; padding: 12px 13px 12px 31px; overflow: hidden; border: 1px solid rgba(17,16,14,.55); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.34); font-weight: 670; font-size: 12px; writing-mode: vertical-rl; transition: filter .2s,transform .2s; }
+.index-tabs { position: fixed; z-index: 30; top: 50%; right: max(4px,calc((100vw - 1700px)/2 + 4px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
+.index-tab { position: relative; width: 88px; height: clamp(120px,17vh,165px); display: flex; align-items: center; gap: 11px; padding: 12px 15px 12px 31px; overflow: hidden; border: 1px solid rgba(17,16,14,.55); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.34); font-weight: 670; font-size: 12px; letter-spacing: .02em; writing-mode: vertical-rl; transition: filter .2s,transform .2s,box-shadow .2s; }
 .index-tab::before { content:""; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 90 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)' opacity='.08'/%3E%3C/svg%3E"); pointer-events:none; }
-.index-tab:hover,.index-tab:focus-visible { filter:saturate(1.15) brightness(1.04); transform:translateX(4px); outline:none; }
+.index-tab:hover,.index-tab:focus-visible,.index-tab.is-active { filter:saturate(1.2) brightness(1.05); transform:translateX(-9px); box-shadow:8px 8px 18px rgba(0,0,0,.36),inset 4px 0 0 rgba(17,16,14,.75),inset 0 1px rgba(255,255,255,.4); outline:none; }
+.index-tab.is-active::after { content:""; position:absolute; top:10px; right:10px; width:7px; height:7px; border-radius:50%; background:var(--ink); }
 .index-tab span { font-family:var(--font-geist-mono),monospace; font-size:8px; }
 .tab-pink { background:var(--pink); }
 .tab-orange { background:var(--orange); }
@@ -296,6 +337,11 @@ img { display: block; width: 100%; }
   .copyright { grid-column:1; }
   .index-tabs { right:4px; gap:5px; }
   .index-tab { width:54px; height:min(22dvh,124px); padding:8px 8px 8px 22px; border-radius:0 7px 7px 0; font-size:9px; }
+  .index-tab:hover,.index-tab:focus-visible,.index-tab.is-active { transform:translateX(-4px); }
+  .opening-spread::before,.artist-spread::before { width:72%; opacity:.05; }
+  .opening-spread::after,.artist-spread::after { width:66%; opacity:.05; }
+  .archive-section::before,.archive-section::after { width:74%; opacity:.05; }
+  .booking::before,.booking::after { width:68%; opacity:.07; }
 }
 
 @media (max-width: 430px) {

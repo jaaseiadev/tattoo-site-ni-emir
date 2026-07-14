@@ -52,12 +52,13 @@ img { display: block; width: 100%; }
 
 .sketchbook-stage {
   --tab-width: 62px;
+  --edge-gap: clamp(2px, .35vw, 6px);
   position: absolute;
   z-index: 1;
   top: 0;
-  right: clamp(4px, .65vw, 12px);
+  right: var(--edge-gap);
   bottom: -2.2vw;
-  width: min(calc(100vw - 8px), 1764px);
+  width: calc(100vw - var(--edge-gap));
   transform: rotate(-.82deg);
   transform-origin: calc(100% - var(--tab-width)) 0;
 }
@@ -69,7 +70,7 @@ img { display: block; width: 100%; }
   top: 9px;
   right: calc(var(--tab-width) - 9px);
   bottom: 0;
-  width: calc(100% - var(--tab-width) + 9px);
+  left: 0;
   border-radius: 0 27px 0 0;
   background: var(--ink);
   box-shadow: 0 31px 82px rgba(0,0,0,.68);
@@ -82,7 +83,7 @@ img { display: block; width: 100%; }
   top: 0;
   right: var(--tab-width);
   bottom: 0;
-  width: calc(100% - var(--tab-width));
+  left: 0;
   height: auto;
   overflow-x: hidden;
   overflow-y: auto;
@@ -308,9 +309,9 @@ img { display: block; width: 100%; }
 }
 
 @media (max-width: 760px) {
-  .sketchbook-stage { --tab-width:54px; right:2px; bottom:-1.2vw; width:calc(100vw - 4px); transform:rotate(-.38deg); }
-  .sketchbook-stage::before { top:4px; right:calc(var(--tab-width) - 5px); width:calc(100% - var(--tab-width) + 5px); border-radius:0 18px 0 0; }
-  .folio { top:0; right:var(--tab-width); bottom:0; width:calc(100% - var(--tab-width)); height:auto; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; scroll-snap-type:none; }
+  .sketchbook-stage { --tab-width:54px; --edge-gap:2px; bottom:-1.2vw; transform:rotate(-.38deg); }
+  .sketchbook-stage::before { top:4px; right:calc(var(--tab-width) - 5px); border-radius:0 18px 0 0; }
+  .folio { top:0; right:var(--tab-width); bottom:0; left:0; height:auto; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; scroll-snap-type:none; }
   .spread { min-height:auto; padding:60px 24px 100px; }
   .opening-spread,.artist-spread { grid-template-columns:1fr; gap:70px; }
   .slideshow { order:1; }

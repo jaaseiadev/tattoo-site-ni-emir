@@ -76,6 +76,8 @@ export default function Home() {
 
   return (
     <main className="site-shell">
+      <p className="side-wordmark">Emir Casil</p>
+
       <aside className="index-tabs" aria-label="Folder index">
         {sections.map(({ id, number, label, color }) => (
           <a
@@ -91,12 +93,6 @@ export default function Home() {
       </aside>
 
       <div className="folio">
-        <header className="masthead">
-          <a className="artist-name" href="#intro">Emir Soria<span>®</span></a>
-          <p>Independent tattoo artist · MNL</p>
-          <a className="header-link" href="mailto:hello@emirsoria.studio">Inquiries ↗</a>
-        </header>
-
         <section className="spread opening-spread" id="intro">
           <div className="slideshow" aria-label="Featured tattoo work slideshow">
             <div className="slide-stack">

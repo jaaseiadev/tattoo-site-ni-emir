@@ -205,7 +205,7 @@ img { display: block; width: 100%; }
 
 .slide { position: absolute; inset: 13px 13px 46px; margin: 0; opacity: 0; transform: scale(.985); transition: opacity .75s ease, transform 1s ease; }
 .slide.is-active { opacity: 1; transform: scale(1); }
-.slide img { height: 100%; object-fit: cover; filter: saturate(.68) contrast(1.06); }
+.slide img { height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06); }
 
 .slide-stamp {
   position: absolute;
@@ -271,7 +271,7 @@ img { display: block; width: 100%; }
 .archive-card { position: absolute; width: 27%; transition: transform .3s ease; }
 .archive-card:hover { z-index: 8; transform: rotate(0) translateY(-7px); }
 .archive-photo { height: 390px; padding: 10px 10px 34px; background: #faf7ef; box-shadow: 0 10px 20px rgba(35,29,20,.2); }
-.archive-photo img { height: 100%; object-fit: cover; filter: saturate(.68) contrast(1.06); }
+.archive-photo img { height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06); }
 .archive-caption { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 12px 5px 0; }
 .archive-caption h3,.archive-caption p { margin: 0; }
 .archive-caption h3 { font-size: 17px; letter-spacing: -.04em; }

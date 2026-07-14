@@ -307,8 +307,8 @@ img { display: block; width: 100%; }
 .footer nav a { border-bottom: 1px solid; }
 .copyright { grid-column: 1/-1; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 
-.index-tabs { position: absolute; z-index: 1; top: 50%; right: 0; display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
-.index-tab { position: relative; width: 38px; height: clamp(120px,17vh,165px); display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 0; overflow: hidden; border: 1px solid rgba(17,16,14,.38); border-left: 0; border-radius: 0 9px 9px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.34); backdrop-filter: blur(3px); font-weight: 670; font-size: 10px; writing-mode: vertical-rl; transition: filter .2s,transform .2s,background-color .2s; }
+.index-tabs { position: absolute; z-index: 1; top: 43%; right: 0; display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
+.index-tab { position: relative; width: 38px; height: clamp(120px,17vh,165px); display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 0; overflow: hidden; border: 1px solid rgba(17,16,14,.38); border-left: 0; border-radius: 0 9px 9px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.34); backdrop-filter: blur(3px); font-weight: 670; font-size: 12px; writing-mode: vertical-rl; transition: filter .2s,transform .2s,background-color .2s; }
 .index-tab::before { content:""; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 90 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)' opacity='.08'/%3E%3C/svg%3E"); pointer-events:none; }
 .index-tab:hover,.index-tab:focus-visible { filter:saturate(1.15) brightness(1.04); transform:translateX(4px); outline:none; }
 .index-tab.is-active { filter:saturate(1.15) brightness(1.04); }
@@ -369,7 +369,7 @@ img { display: block; width: 100%; }
   .footer { grid-template-columns:1fr; gap:28px; }
   .copyright { grid-column:1; }
   .index-tabs { right:0; gap:5px; }
-  .index-tab { width:34px; height:min(22dvh,124px); align-items:center; justify-content:center; padding:7px 0; border-radius:0 6px 6px 0; font-size:8px; }
+  .index-tab { width:34px; height:min(22dvh,124px); align-items:center; justify-content:center; padding:7px 0; border-radius:0 6px 6px 0; font-size:10px; }
   .index-tab-number,.index-tab-label { transform:translateY(5px); }
   .opening-spread::before,.artist-spread::before { width:72%; opacity:.05; }
   .opening-spread::after,.artist-spread::after { width:66%; opacity:.05; }

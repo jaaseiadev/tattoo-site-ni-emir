@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 
 const slides = [
   { src: "/portfolio/cat-chestpiece.jpg", title: "Feral Study", detail: "Illustrative chest piece" },
@@ -74,6 +74,19 @@ export default function Home() {
     setActiveSlide((current) => (current + 1) % slides.length);
   };
 
+  const scrollToSection = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
+    event.preventDefault();
+    const folio = document.querySelector<HTMLElement>(".folio");
+    const section = document.getElementById(id);
+    if (!folio || !section) return;
+
+    const sectionTop = section.getBoundingClientRect().top
+      - folio.getBoundingClientRect().top
+      + folio.scrollTop;
+
+    folio.scrollTo({ top: sectionTop, behavior: "smooth" });
+  };
+
   return (
     <main className="site-shell">
       <p className="artist-corner-mark">
@@ -86,7 +99,7 @@ export default function Home() {
               className={`index-tab tab-${color} ${activeSection === id ? "is-active" : ""}`}
               href={`#${id}`}
               aria-current={activeSection === id ? "location" : undefined}
-              onClick={() => setActiveSection(id)}
+              onClick={(event) => scrollToSection(event, id)}
               key={id}
             >
               <span className="index-tab-number">{number}</span>

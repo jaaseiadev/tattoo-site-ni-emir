@@ -76,8 +76,6 @@ export default function Home() {
 
   return (
     <main className="site-shell">
-      <p className="side-wordmark">Emir Casil</p>
-
       <aside className="index-tabs" aria-label="Folder index">
         {sections.map(({ id, number, label, color }) => (
           <a

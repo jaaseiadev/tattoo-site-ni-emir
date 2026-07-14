@@ -69,10 +69,13 @@ img { display: block; width: 100%; }
 }
 
 .folio {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  width: min(100%, 1700px);
-  height: calc(100dvh - 18px);
+  top: 18px;
+  bottom: 0;
+  left: 0;
+  width: min(calc(100% - clamp(18px, 2.4vw, 38px)), 1700px);
+  height: auto;
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -90,7 +93,7 @@ img { display: block; width: 100%; }
     radial-gradient(circle at 16% 10%, rgba(255,255,255,.8), transparent 26%),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.17'/%3E%3C/svg%3E");
   box-shadow: inset -24px 0 30px -32px rgba(25,21,15,.55);
-  transform: rotateX(.3deg);
+  transform: none;
 }
 
 .folio::-webkit-scrollbar { width: 8px; }
@@ -296,7 +299,7 @@ img { display: block; width: 100%; }
 @media (max-width: 760px) {
   .site-shell { padding: 8px 12px 0 0; }
   .site-shell::before { top:4px; right:auto; bottom:0; left:0; width:calc(100% - 3px); border-radius:0 18px 0 0; transform:none; }
-  .folio { width: calc(100% - 18px); height: calc(100dvh - 8px); margin-left:0; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; transform:none; scroll-snap-type:none; }
+  .folio { top:8px; bottom:0; width:calc(100% - 30px); height:auto; margin-left:0; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; transform:none; scroll-snap-type:none; }
   .spread { min-height:auto; padding:60px 24px 100px; }
   .opening-spread,.artist-spread { grid-template-columns:1fr; gap:70px; }
   .slideshow { order:1; }

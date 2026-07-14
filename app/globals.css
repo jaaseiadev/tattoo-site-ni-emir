@@ -51,11 +51,17 @@ img { display: block; width: 100%; }
   content: "";
   position: fixed;
   z-index: 0;
-  right: 3%; bottom: .5%; left: 4%;
-  height: 8%;
-  border-radius: 50%;
-  background: rgba(0,0,0,.75);
-  filter: blur(28px);
+  top: 9px;
+  right: calc(clamp(18px, 2.4vw, 38px) - 9px);
+  bottom: 7px;
+  left: calc(clamp(18px, 2.4vw, 38px) - 9px);
+  max-width: 1718px;
+  margin: 0 auto;
+  border-radius: 27px 27px 13px 13px;
+  background: var(--ink);
+  box-shadow: 0 31px 82px rgba(0,0,0,.68);
+  transform: rotate(-.18deg);
+  pointer-events: none;
 }
 
 .folio {
@@ -70,15 +76,15 @@ img { display: block; width: 100%; }
   scroll-snap-type: y proximity;
   scrollbar-color: rgba(17,16,14,.62) transparent;
   scrollbar-width: thin;
-  border: 10px solid var(--ink);
-  border-radius: 23px 23px 9px 9px;
+  border: 1px solid rgba(17,16,14,.28);
+  border-radius: 18px 18px 7px 7px;
   background-color: var(--paper);
   background-image:
     linear-gradient(90deg, transparent 0 49.15%, rgba(25,21,15,.07) 49.7%, rgba(255,255,255,.5) 50%, rgba(25,21,15,.05) 50.35%, transparent 50.9%),
     repeating-linear-gradient(0deg, rgba(92,74,49,.018) 0, rgba(92,74,49,.018) 1px, transparent 1px, transparent 5px),
     radial-gradient(circle at 16% 10%, rgba(255,255,255,.8), transparent 26%),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.17'/%3E%3C/svg%3E");
-  box-shadow: 0 28px 80px rgba(0,0,0,.64), 0 3px 0 #928a78, 0 7px 0 #d7cfbe, inset 24px 0 30px -32px rgba(25,21,15,.55), inset -24px 0 30px -32px rgba(25,21,15,.55);
+  box-shadow: 0 3px 0 #928a78, 0 7px 0 #d7cfbe, inset 24px 0 30px -32px rgba(25,21,15,.55), inset -24px 0 30px -32px rgba(25,21,15,.55);
   transform: rotateX(.3deg);
 }
 
@@ -302,7 +308,8 @@ img { display: block; width: 100%; }
 
 @media (max-width: 760px) {
   .site-shell { padding: 8px 12px 8px 8px; }
-  .folio { width: calc(100% - 18px); height: calc(100dvh - 16px); margin-left:0; border-width:6px; border-radius:15px 15px 6px 6px; transform:none; scroll-snap-type:none; }
+  .site-shell::before { top:4px; right:4px; bottom:3px; left:3px; border-radius:18px 18px 8px 8px; transform:rotate(-.12deg); }
+  .folio { width: calc(100% - 18px); height: calc(100dvh - 16px); margin-left:0; border-width:1px; border-radius:12px 12px 4px 4px; transform:none; scroll-snap-type:none; }
   .masthead { height:60px; grid-template-columns:1fr auto; padding:0 18px; border-bottom-width:5px; }
   .masthead p { display:none; }
   .header-link { font-size:9px; }

@@ -216,7 +216,7 @@ img { display: block; width: 100%; }
 .calligraphy--opening { right: -7%; bottom: -12%; transform: rotate(-8deg); }
 .pencil-note { position: absolute; right: 2%; bottom: -24%; margin: 0; font-family: var(--font-geist-mono),monospace; font-size: 8px; line-height: 1.6; text-transform: uppercase; transform: rotate(-5deg); }
 
-.artist-spread { display: grid; grid-template-columns: minmax(0,.95fr) minmax(420px,1.05fr); gap: clamp(54px,7vw,120px); align-items: center; border-top: 1px solid var(--rule); background: rgba(229,222,206,.38); }
+.artist-spread { display: grid; grid-template-columns: minmax(0,.95fr) minmax(420px,1.05fr); gap: clamp(54px,7vw,120px); align-items: center; background: rgba(229,222,206,.38); }
 .artist-portrait { position: relative; min-height: 680px; }
 .portrait-print { position: absolute; top: 2%; left: 8%; width: 72%; margin: 0; padding: 12px 12px 38px; background: #f8f5ec; box-shadow: 0 14px 26px rgba(35,29,20,.25); transform: rotate(-2.4deg); }
 .portrait-print img { height: 570px; object-fit: cover; object-position: 50% 68%; filter: saturate(.72) contrast(1.04); }
@@ -236,7 +236,7 @@ img { display: block; width: 100%; }
 .artist-facts dd { margin: 0; font-size: 12px; }
 .calligraphy--artist { right: -1%; bottom: -13%; transform: rotate(-7deg); }
 
-.archive-section { position: relative; isolation: isolate; min-height: 1800px; padding: 130px clamp(24px,4vw,74px) 160px; border-top: 7px solid var(--ink); scroll-snap-align: start; }
+.archive-section { position: relative; isolation: isolate; min-height: 1800px; padding: 130px clamp(24px,4vw,74px) 160px; scroll-snap-align: start; }
 .archive-section::before { top: 18%; left: -8%; width: 42%; height: 31%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(-10deg); }
 .archive-section::after { right: -7%; bottom: 7%; width: 43%; height: 31%; background-image: url("/doodles/tattoo-doodles-classic.png"); transform: rotate(8deg); }
 .archive-heading,.archive-grid { position: relative; z-index: 1; }
@@ -273,7 +273,7 @@ img { display: block; width: 100%; }
 .booking-button:hover,.booking-button:focus-visible { background: var(--yellow); color: var(--ink); outline: none; }
 .calligraphy--booking { right: -2%; bottom: 8%; filter: invert(1); opacity: .24; mix-blend-mode: screen; transform: rotate(-7deg); }
 
-.footer { position: relative; isolation: isolate; min-height: 230px; display: grid; grid-template-columns: 1fr auto; align-content: center; gap: 45px; overflow: hidden; padding: 50px clamp(24px,4vw,74px); border-top: 1px solid var(--rule); font-size: 12px; }
+.footer { position: relative; isolation: isolate; min-height: 230px; display: grid; grid-template-columns: 1fr auto; align-content: center; gap: 45px; overflow: hidden; padding: 50px clamp(24px,4vw,74px); font-size: 12px; }
 .footer::before { right: 30%; bottom: -75%; width: 34%; height: 180%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(9deg); opacity: .055; }
 .footer > * { position: relative; z-index: 1; }
 .footer strong { font-size: 22px; letter-spacing: -.055em; }
@@ -327,7 +327,7 @@ img { display: block; width: 100%; }
   .artist-columns { grid-template-columns:1fr; gap:16px; }
   .artist-copy { padding-bottom:50px; }
   .calligraphy--artist { bottom:-3%; }
-  .archive-section { min-height:auto; padding:90px 24px 110px; border-top-width:5px; }
+  .archive-section { min-height:auto; padding:90px 24px 110px; }
   .archive-heading { grid-template-columns:1fr; gap:30px; }
   .archive-heading > p { font-size:15px; }
   .archive-grid { display:flex; flex-direction:column; gap:65px; min-height:auto; margin-top:70px; }

@@ -57,12 +57,15 @@ img { display: block; width: 100%; }
   left: clamp(10px, .8vw, 16px);
   margin: 0;
   color: var(--ink);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: clamp(10px, .72vw, 13px);
-  font-weight: 650;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: clamp(13px, 1.2vw, 22px);
+  font-weight: 780;
+  line-height: .82;
+  letter-spacing: -.07em;
+  white-space: nowrap;
 }
+
+.artist-corner-mark span { color: var(--yellow); }
 
 .sketchbook-stage {
   --tab-width: 62px;
@@ -323,7 +326,7 @@ img { display: block; width: 100%; }
 }
 
 @media (max-width: 760px) {
-  .artist-corner-mark { top:4px; left:8px; font-size:8px; letter-spacing:.08em; }
+  .artist-corner-mark { top:4px; left:8px; font-size:clamp(10px,2.8vw,13px); letter-spacing:-.065em; }
   .sketchbook-stage { --tab-width:54px; --edge-gap:2px; bottom:-3vw; transform:rotate(-.75deg); }
   .sketchbook-stage::before { top:0; right:calc(var(--tab-width) - 5px); border-radius:0 18px 0 0; }
   .folio { top:6px; right:var(--tab-width); bottom:0; left:0; height:auto; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; scroll-snap-type:none; }

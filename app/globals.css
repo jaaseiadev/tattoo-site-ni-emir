@@ -81,7 +81,7 @@ img { display: block; width: 100%; }
   overflow-y: auto;
   overscroll-behavior: contain;
   scroll-snap-type: y proximity;
-  scrollbar-color: rgba(91,72,48,.28) transparent;
+  scrollbar-color: rgba(91,72,48,.12) transparent;
   scrollbar-width: thin;
   border: 1px solid rgba(17,16,14,.28);
   border-left: 0;
@@ -96,10 +96,11 @@ img { display: block; width: 100%; }
   transform: none;
 }
 
-.folio::-webkit-scrollbar { width: 6px; }
+.folio::-webkit-scrollbar { width: 3px; }
+.folio::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
 .folio::-webkit-scrollbar-track { background: transparent; }
-.folio::-webkit-scrollbar-thumb { border: 1px solid transparent; border-radius: 20px; background: rgba(91,72,48,.26); background-clip: padding-box; }
-.folio::-webkit-scrollbar-thumb:hover { background: rgba(91,72,48,.42); background-clip: padding-box; }
+.folio::-webkit-scrollbar-thumb { border-radius: 20px; background: rgba(91,72,48,.12); }
+.folio::-webkit-scrollbar-thumb:hover { background: rgba(91,72,48,.24); }
 
 .spread {
   position: relative;

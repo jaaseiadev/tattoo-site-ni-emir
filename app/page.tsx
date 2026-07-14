@@ -76,6 +76,7 @@ export default function Home() {
 
   return (
     <main className="site-shell">
+      <p className="artist-corner-mark">Emir Casil Cortez</p>
       <div className="sketchbook-stage">
         <aside className="index-tabs" aria-label="Folder index">
           {sections.map(({ id, number, label, color }) => (

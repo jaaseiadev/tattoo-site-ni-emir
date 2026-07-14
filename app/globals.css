@@ -46,37 +46,44 @@ img { display: block; width: 100%; }
   position: relative;
   isolation: isolate;
   height: 100dvh;
-  padding: 18px clamp(18px, 2.4vw, 38px) 0 0;
+  overflow: hidden;
   perspective: 1800px;
 }
 
-.site-shell::before {
+.sketchbook-stage {
+  --tab-width: 62px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: clamp(4px, .65vw, 12px);
+  bottom: -2.2vw;
+  width: min(calc(100vw - 8px), 1764px);
+  transform: rotate(-.82deg);
+  transform-origin: calc(100% - var(--tab-width)) 0;
+}
+
+.sketchbook-stage::before {
   content: "";
-  position: fixed;
+  position: absolute;
   z-index: 0;
   top: 9px;
-  right: auto;
+  right: calc(var(--tab-width) - 9px);
   bottom: 0;
-  left: 0;
-  width: min(calc(100% - clamp(18px, 2.4vw, 38px) + 9px), 1718px);
-  max-width: 1718px;
-  margin: 0;
+  width: calc(100% - var(--tab-width) + 9px);
   border-radius: 0 27px 0 0;
   background: var(--ink);
   box-shadow: 0 31px 82px rgba(0,0,0,.68);
-  transform: none;
   pointer-events: none;
 }
 
 .folio {
   position: absolute;
   z-index: 2;
-  top: 18px;
+  top: 0;
+  right: var(--tab-width);
   bottom: 0;
-  left: 0;
-  width: min(calc(100% - clamp(18px, 2.4vw, 38px)), 1700px);
+  width: calc(100% - var(--tab-width));
   height: auto;
-  margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -276,7 +283,7 @@ img { display: block; width: 100%; }
 .footer nav a { border-bottom: 1px solid; }
 .copyright { grid-column: 1/-1; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 
-.index-tabs { position: fixed; z-index: 1; top: 50%; right: max(4px,calc(100vw - 1742px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
+.index-tabs { position: absolute; z-index: 1; top: 50%; right: 0; display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
 .index-tab { position: relative; width: 62px; height: clamp(120px,17vh,165px); display: flex; align-items: flex-start; justify-content: flex-start; gap: 9px; padding: 11px 8px 11px 23px; overflow: hidden; border: 1px solid rgba(17,16,14,.38); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.34); backdrop-filter: blur(3px); font-weight: 670; font-size: 11px; writing-mode: vertical-rl; transition: filter .2s,transform .2s,background-color .2s; }
 .index-tab::before { content:""; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 90 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)' opacity='.08'/%3E%3C/svg%3E"); pointer-events:none; }
 .index-tab:hover,.index-tab:focus-visible { filter:saturate(1.15) brightness(1.04); transform:translateX(4px); outline:none; }
@@ -301,9 +308,9 @@ img { display: block; width: 100%; }
 }
 
 @media (max-width: 760px) {
-  .site-shell { padding: 8px 12px 0 0; }
-  .site-shell::before { top:4px; right:auto; bottom:0; left:0; width:calc(100% - 3px); border-radius:0 18px 0 0; transform:none; }
-  .folio { top:8px; bottom:0; width:calc(100% - 30px); height:auto; margin-left:0; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; transform:none; scroll-snap-type:none; }
+  .sketchbook-stage { --tab-width:54px; right:2px; bottom:-1.2vw; width:calc(100vw - 4px); transform:rotate(-.38deg); }
+  .sketchbook-stage::before { top:4px; right:calc(var(--tab-width) - 5px); width:calc(100% - var(--tab-width) + 5px); border-radius:0 18px 0 0; }
+  .folio { top:0; right:var(--tab-width); bottom:0; width:calc(100% - var(--tab-width)); height:auto; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; scroll-snap-type:none; }
   .spread { min-height:auto; padding:60px 24px 100px; }
   .opening-spread,.artist-spread { grid-template-columns:1fr; gap:70px; }
   .slideshow { order:1; }
@@ -336,7 +343,7 @@ img { display: block; width: 100%; }
   .booking { min-height:640px; }
   .footer { grid-template-columns:1fr; gap:28px; }
   .copyright { grid-column:1; }
-  .index-tabs { right:4px; gap:5px; }
+  .index-tabs { right:0; gap:5px; }
   .index-tab { width:54px; height:min(22dvh,124px); align-items:flex-start; padding:8px 6px 8px 18px; border-radius:0 7px 7px 0; font-size:9px; }
   .opening-spread::before,.artist-spread::before { width:72%; opacity:.05; }
   .opening-spread::after,.artist-spread::after { width:66%; opacity:.05; }

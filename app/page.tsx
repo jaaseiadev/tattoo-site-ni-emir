@@ -76,22 +76,23 @@ export default function Home() {
 
   return (
     <main className="site-shell">
-      <aside className="index-tabs" aria-label="Folder index">
-        {sections.map(({ id, number, label, color }) => (
-          <a
-            className={`index-tab tab-${color} ${activeSection === id ? "is-active" : ""}`}
-            href={`#${id}`}
-            aria-current={activeSection === id ? "location" : undefined}
-            onClick={() => setActiveSection(id)}
-            key={id}
-          >
-            <span className="index-tab-number">{number}</span>
-            <span className="index-tab-label">{label}</span>
-          </a>
-        ))}
-      </aside>
+      <div className="sketchbook-stage">
+        <aside className="index-tabs" aria-label="Folder index">
+          {sections.map(({ id, number, label, color }) => (
+            <a
+              className={`index-tab tab-${color} ${activeSection === id ? "is-active" : ""}`}
+              href={`#${id}`}
+              aria-current={activeSection === id ? "location" : undefined}
+              onClick={() => setActiveSection(id)}
+              key={id}
+            >
+              <span className="index-tab-number">{number}</span>
+              <span className="index-tab-label">{label}</span>
+            </a>
+          ))}
+        </aside>
 
-      <div className="folio">
+        <div className="folio">
         <section className="spread opening-spread" id="intro">
           <div className="slideshow" aria-label="Featured tattoo work slideshow">
             <div className="slide-stack">
@@ -216,6 +217,7 @@ export default function Home() {
           <nav aria-label="Footer"><a href="#artist">Artist</a><a href="#works">Work</a><a href="#intro">Top ↑</a></nav>
           <p className="copyright">© 2026 · All artwork and photography from the artist’s archive.</p>
         </footer>
+        </div>
       </div>
     </main>
   );

@@ -140,7 +140,7 @@ export default function Home() {
               Every tattoo begins with a conversation and ends as something only you can carry.
             </p>
             <a className="text-link" href="#artist">Meet the artist <span>↓</span></a>
-            <p className="calligraphy calligraphy--opening" aria-hidden="true">drawn slowly, worn forever</p>
+            <p className="calligraphy calligraphy--opening" aria-hidden="true">drawn slowly, worn forever.</p>
             <p className="pencil-note">original work only<br />no repeats →</p>
           </div>
         </section>
@@ -180,7 +180,7 @@ export default function Home() {
               <div><dt>Working in</dt><dd>Black & grey · Fine line · Lettering</dd></div>
               <div><dt>Studio</dt><dd>Private · By appointment</dd></div>
             </dl>
-            <p className="calligraphy calligraphy--artist" aria-hidden="true">art should feel lived in</p>
+            <p className="calligraphy calligraphy--artist" aria-hidden="true">art should feel lived in.</p>
           </div>
         </section>
 
@@ -200,7 +200,7 @@ export default function Home() {
                 <div className="archive-caption"><h3>{title}</h3><p>{detail}</p></div>
               </article>
             ))}
-            <p className="calligraphy calligraphy--archive" aria-hidden="true">made once, kept for life</p>
+            <p className="calligraphy calligraphy--archive" aria-hidden="true">made once kept for life.</p>
           </div>
         </section>
 
@@ -209,7 +209,7 @@ export default function Home() {
           <h2>Bring me your<br /><span>strange idea.</span></h2>
           <p>Include the concept, placement, approximate size and preferred dates.</p>
           <a className="booking-button" href="mailto:hello@emirsoria.studio?subject=Tattoo%20project%20inquiry">Start a project <span>↗</span></a>
-          <p className="calligraphy calligraphy--booking" aria-hidden="true">let’s make it yours</p>
+          <p className="calligraphy calligraphy--booking" aria-hidden="true">let’s make it yours.</p>
         </section>
 
         <footer className="footer">

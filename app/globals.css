@@ -26,13 +26,14 @@ body {
   overflow: hidden;
   color: var(--ink);
   font-family: var(--font-geist-sans), Arial, sans-serif;
-  background-color: #c9cbc8;
+  background-color: #d6d0c2;
   background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='slate'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23slate)' opacity='.075'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse at 18% 8%, rgba(255,255,255,.38), transparent 48%),
-    linear-gradient(145deg, #d8dad7, #b8bbb8);
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.16'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(4deg, rgba(80,66,46,.025) 0, rgba(80,66,46,.025) 1px, transparent 1px, transparent 7px),
+    radial-gradient(ellipse at 18% 8%, rgba(255,255,255,.48), transparent 50%),
+    linear-gradient(145deg, #ded9cd, #c8c1b2);
   background-position: center;
-  background-size: 220px 220px, cover, cover;
+  background-size: 240px 240px, auto, cover, cover;
   background-attachment: fixed;
 }
 
@@ -72,8 +73,8 @@ img { display: block; width: 100%; }
   left: max(14px, calc((100vw - 1700px) / 4));
   margin: 0;
   color: rgba(17,16,14,.88);
-  font-size: clamp(17px,1.45vw,27px);
-  font-weight: 850;
+  font-size: clamp(22px,calc((100vw - 1700px) / 4 + 24px),46px);
+  font-weight: 900;
   line-height: 1;
   letter-spacing: -.065em;
   white-space: nowrap;
@@ -211,7 +212,7 @@ img { display: block; width: 100%; }
 .text-link span { transition: transform .2s; }
 .text-link:hover span { transform: translateY(4px); }
 
-.calligraphy { position: absolute; z-index: 4; margin: 0; color: rgba(17,16,14,.56); font-family: var(--font-cursive),cursive; font-size: clamp(52px,6vw,106px); font-weight: 400; line-height: .88; letter-spacing: -.08em; white-space: nowrap; pointer-events: none; }
+.calligraphy { position: absolute; z-index: 4; margin: 0; color: rgba(103,72,50,.43); font-family: var(--font-cursive),cursive; font-size: clamp(48px,5.4vw,92px); font-weight: 400; line-height: .92; letter-spacing: -.045em; white-space: nowrap; text-shadow: 0 0 .35px rgba(103,72,50,.18); pointer-events: none; }
 .calligraphy--opening { right: -7%; bottom: -12%; transform: rotate(-8deg); }
 .pencil-note { position: absolute; right: 2%; bottom: -24%; margin: 0; font-family: var(--font-geist-mono),monospace; font-size: 8px; line-height: 1.6; text-transform: uppercase; transform: rotate(-5deg); }
 
@@ -270,7 +271,7 @@ img { display: block; width: 100%; }
 .booking > p:not(.eyebrow):not(.calligraphy) { max-width: 420px; margin: 35px 0 0; color: rgba(240,236,223,.62); font-size: 13px; }
 .booking-button { display: inline-flex; gap: 46px; margin-top: 42px; padding: 18px 22px; border: 1px solid var(--paper); font-family: var(--font-geist-mono),monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .09em; transition: background .2s,color .2s; }
 .booking-button:hover,.booking-button:focus-visible { background: var(--yellow); color: var(--ink); outline: none; }
-.calligraphy--booking { right: -2%; bottom: 8%; color: rgba(240,236,223,.34); transform: rotate(-7deg); }
+.calligraphy--booking { right: -2%; bottom: 8%; color: rgba(225,202,169,.31); text-shadow: none; transform: rotate(-7deg); }
 
 .footer { position: relative; isolation: isolate; min-height: 230px; display: grid; grid-template-columns: 1fr auto; align-content: center; gap: 45px; overflow: hidden; padding: 50px clamp(24px,4vw,74px); border-top: 1px solid var(--rule); font-size: 12px; }
 .footer::before { right: 30%; bottom: -75%; width: 34%; height: 180%; background-image: url("/doodles/tattoo-doodles-mystic.png"); transform: rotate(9deg); opacity: .055; }
@@ -303,7 +304,7 @@ img { display: block; width: 100%; }
 @media (max-width: 760px) {
   .site-shell { padding: 8px 12px 8px 8px; }
   .site-shell::before { top:4px; right:4px; bottom:3px; left:3px; border-radius:18px 18px 8px 8px; transform:rotate(-.12deg); }
-  .side-wordmark { left:6px; font-size:12px; }
+  .side-wordmark { left:6px; font-size:14px; }
   .folio { width: calc(100% - 18px); height: calc(100dvh - 16px); margin-left:0; border-width:1px; border-radius:12px 12px 4px 4px; transform:none; scroll-snap-type:none; }
   .spread { min-height:auto; padding:60px 24px 100px; }
   .opening-spread,.artist-spread { grid-template-columns:1fr; gap:70px; }
@@ -314,7 +315,7 @@ img { display: block; width: 100%; }
   .slide-count { display:none; }
   .opening-copy h1,.artist-copy h2,.archive-heading h2,.booking h2 { font-size:clamp(58px,18vw,86px); }
   .lede { font-size:19px; }
-  .calligraphy { font-size:47px; }
+  .calligraphy { font-size:42px; }
   .calligraphy--opening { right:-2%; bottom:-18%; }
   .pencil-note { display:none; }
   .artist-spread { padding-top:90px; }

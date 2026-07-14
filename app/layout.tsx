@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Nothing_You_Could_Do } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 
@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const caveat = Caveat({
+const handwritten = Nothing_You_Could_Do({
   variable: "--font-cursive",
   subsets: ["latin"],
   weight: "400",
@@ -53,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${handwritten.variable}`}>
         {children}
       </body>
     </html>

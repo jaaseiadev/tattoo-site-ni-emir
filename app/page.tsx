@@ -1,191 +1,186 @@
-const locations = [
-  ["01", "Manila", "Jul 18—24"],
-  ["02", "Cebu", "Aug 07—12"],
-  ["03", "Singapore", "Sep 19—23"],
+"use client";
+
+import { useEffect, useState } from "react";
+
+const slides = [
+  { src: "/portfolio/cat-chestpiece.jpg", title: "Feral Study", detail: "Illustrative chest piece" },
+  { src: "/portfolio/pierced-heart.jpg", title: "Three of Swords", detail: "Black & grey study" },
+  { src: "/portfolio/compass-bird.jpg", title: "True North", detail: "Custom back piece" },
+  { src: "/portfolio/neck-lettering.jpg", title: "Vertical Type", detail: "Blackletter study" },
+  { src: "/portfolio/gengar.jpg", title: "Pocket Ghost", detail: "Fine-line character" },
+  { src: "/portfolio/script-arm.jpg", title: "Private Language", detail: "Custom script" },
+  { src: "/portfolio/nineteen-ninety-seven.jpg", title: "1997", detail: "Old English lettering" },
 ];
 
-const work = [
-  {
-    src: "/tattoo-session.jpg",
-    alt: "Tattoo artist working on a client's arm in a dark studio",
-    number: "No. 021",
-    title: "The Serpent",
-    note: "Blackwork · Forearm · 2026",
-    className: "work-card work-card--wide",
-  },
-  {
-    src: "/tattoo-process.jpg",
-    alt: "Close detail of a tattoo machine creating blackwork",
-    number: "No. 017",
-    title: "Night Garden",
-    note: "Ornamental · Upper arm · 2026",
-    className: "work-card work-card--portrait",
-  },
-  {
-    src: "/tattoo-detail.jpg",
-    alt: "Close view of a tattoo artist drawing a detailed line tattoo",
-    number: "No. 009",
-    title: "Soft Armor",
-    note: "Fine line · Leg · 2025",
-    className: "work-card work-card--small",
-  },
-  {
-    src: "/tattoo-portrait.jpg",
-    alt: "Tattoo machine adding linework to a colorful sleeve",
-    number: "No. 013",
-    title: "Old Flame",
-    note: "Illustrative · Sleeve · 2025",
-    className: "work-card work-card--landscape",
-  },
+const archive = [
+  ["/portfolio/gengar.jpg", "Pocket Ghost", "Fine line / 01"],
+  ["/portfolio/cat-chestpiece.jpg", "Feral Study", "Illustrative / 02"],
+  ["/portfolio/compass-bird.jpg", "True North", "Custom / 03"],
+  ["/portfolio/heart-detail.jpg", "Three of Swords", "Black & grey / 04"],
+  ["/portfolio/script-arm.jpg", "Private Language", "Script / 05"],
+  ["/portfolio/numbering.jpg", "1997", "Lettering / 06"],
+  ["/portfolio/neck-lettering.jpg", "Vertical Type", "Blackletter / 07"],
+  ["/portfolio/pierced-heart.jpg", "Anatomy of Courage", "Black & grey / 08"],
 ];
 
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(
+      () => setActiveSlide((current) => (current + 1) % slides.length),
+      4800,
+    );
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const showPrevious = () => {
+    setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
+  };
+
+  const showNext = () => {
+    setActiveSlide((current) => (current + 1) % slides.length);
+  };
+
   return (
     <main className="site-shell">
-      <aside className="index-tabs" aria-label="Section index">
-        <a className="index-tab tab-pink" href="#intro"><span>I.</span> intro</a>
-        <a className="index-tab tab-orange" href="#works"><span>II.</span> works</a>
-        <a className="index-tab tab-blue" href="#approach"><span>III.</span> approach</a>
-        <a className="index-tab tab-yellow" href="#book"><span>IV.</span> book a session</a>
+      <aside className="index-tabs" aria-label="Folder index">
+        <a className="index-tab tab-pink" href="#intro"><span>01</span> opening</a>
+        <a className="index-tab tab-orange" href="#artist"><span>02</span> artist</a>
+        <a className="index-tab tab-blue" href="#works"><span>03</span> archive</a>
+        <a className="index-tab tab-yellow" href="#book"><span>04</span> booking</a>
       </aside>
 
       <div className="folio">
         <header className="masthead">
-          <a className="artist-name" href="#intro" aria-label="Emir Soria, home">
-            Emir Soria<span className="registered">®</span>
-          </a>
-          <p className="folio-label">Independent tattoo artist · MNL</p>
-          <a className="small-link" href="mailto:hello@emirsoria.studio">Inquiries ↗</a>
+          <a className="artist-name" href="#intro">Emir Soria<span>®</span></a>
+          <p>Independent tattoo artist · MNL</p>
+          <a className="header-link" href="mailto:hello@emirsoria.studio">Inquiries ↗</a>
         </header>
 
-        <section className="tour-strip" aria-label="Upcoming guest spots">
-          <p className="tour-heading">Upcoming locations</p>
-          <div className="tour-list">
-            {locations.map(([number, city, date]) => (
-              <div className="tour-stop" key={city}>
-                <span className="tour-number">{number}</span>
-                <span>{city}</span>
-                <i>•</i>
-                <span>{date}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <section className="spread opening-spread" id="intro">
+          <div className="slideshow" aria-label="Featured tattoo work slideshow">
+            <div className="slide-stack">
+              {slides.map((slide, index) => (
+                <figure
+                  className={`slide ${index === activeSlide ? "is-active" : ""}`}
+                  aria-hidden={index !== activeSlide}
+                  key={slide.src}
+                >
+                  <img src={slide.src} alt={index === activeSlide ? slide.title : ""} />
+                </figure>
+              ))}
+              <p className="slide-stamp">FIELD NOTES<br />ES—26</p>
+            </div>
 
-        <section className="hero" id="intro">
-          <div className="hero-copy">
+            <div className="slide-controls">
+              <button type="button" onClick={showPrevious} aria-label="Previous image">←</button>
+              <div className="slide-caption" aria-live="polite">
+                <p>{slides[activeSlide].title}</p>
+                <span>{slides[activeSlide].detail}</span>
+              </div>
+              <p className="slide-count">{String(activeSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}</p>
+              <button type="button" onClick={showNext} aria-label="Next image">→</button>
+            </div>
+
+            <div className="slide-dots" aria-label="Choose an image">
+              {slides.map((slide, index) => (
+                <button
+                  type="button"
+                  className={index === activeSlide ? "is-active" : ""}
+                  onClick={() => setActiveSlide(index)}
+                  aria-label={`Show ${slide.title}`}
+                  aria-current={index === activeSlide ? "true" : undefined}
+                  key={slide.src}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="opening-copy">
             <p className="eyebrow">Custom pieces / one body at a time</p>
             <h1>Marks made<br />to <span className="marker">live with.</span></h1>
-            <p className="hero-intro">
-              I translate memory, instinct and strange little ideas into
-              <span className="marker marker--thin"> permanent, personal artwork.</span>
-              Every piece begins as a conversation and ends as something only you can carry.
+            <p className="lede">
+              Personal drawings built around memory, instinct and the shape of the body.
+              Every tattoo begins with a conversation and ends as something only you can carry.
             </p>
-            <a className="text-cta" href="#works">Open the archive <span>↓</span></a>
+            <a className="text-link" href="#artist">Meet the artist <span>↓</span></a>
+            <p className="calligraphy calligraphy--opening" aria-hidden="true">drawn slowly, worn forever</p>
+            <p className="pencil-note">original work only<br />no repeats →</p>
           </div>
-
-          <p className="scribble scribble--hero" aria-hidden="true">made by hand, worn by heart</p>
-          <p className="margin-note margin-note--one">obsessed with contrast<br />& quiet details →</p>
-
-          <figure className="polaroid polaroid--hero-small">
-            <img src="/tattoo-process.jpg" alt="Tattoo needle drawing an intricate blackwork design" />
-            <figcaption>process / 05:42 PM</figcaption>
-          </figure>
-          <figure className="polaroid polaroid--hero-large">
-            <img src="/tattoo-session.jpg" alt="Black and white portrait of an artist tattooing a client" />
-            <figcaption>studio study no. 24</figcaption>
-          </figure>
-          <div className="catalog-stamp" aria-hidden="true">ARCHIVE<br />ES—26</div>
         </section>
 
-        <section className="archive" id="works">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Selected works · 2025—2026</p>
-              <h2>Living<br />archive</h2>
-            </div>
-            <p className="section-note">
-              A collection of custom blackwork, fine line and illustrative pieces.
-              No repeats. No copies. Each drawing belongs to one person.
-            </p>
+        <section className="spread artist-spread" id="artist">
+          <div className="artist-portrait">
+            <figure className="portrait-print">
+              <img src="/portfolio/artist-profile.jpg" alt="Emir Soria beside a motorcycle at Agas-Agas Bridge" />
+              <figcaption>Artist portrait · On the road · 2026</figcaption>
+            </figure>
+            <figure className="artist-detail-print" aria-hidden="true">
+              <img src="/portfolio/compass-bird.jpg" alt="" />
+            </figure>
+            <p className="portrait-tape">PERSONAL FILE / 02</p>
           </div>
 
-          <div className="work-grid">
-            {work.map((item) => (
-              <article className={item.className} key={item.number}>
-                <div className="photo-mat">
-                  <img src={item.src} alt={item.alt} />
-                  <span className="photo-index">{item.number}</span>
-                </div>
-                <div className="work-caption">
-                  <h3>{item.title}</h3>
-                  <p>{item.note}</p>
-                </div>
+          <div className="artist-copy">
+            <p className="eyebrow">Behind the needle</p>
+            <h2>Meet<br />Emir.</h2>
+            <p className="artist-lede">
+              A tattoo artist drawn to bold symbols, lived-in lettering and images that feel
+              personal before they feel polished.
+            </p>
+            <div className="artist-columns">
+              <p>
+                Emir’s practice moves between black-and-grey illustration, fine line, custom
+                script and expressive one-off pieces. The work is direct, curious and made to
+                settle naturally into the body—not sit on top of it.
+              </p>
+              <p>
+                Each session is collaborative and unhurried. References are welcomed, but the
+                final drawing is always rebuilt from scratch around the client, placement and story.
+              </p>
+            </div>
+            <dl className="artist-facts">
+              <div><dt>Based</dt><dd>Quezon City, PH</dd></div>
+              <div><dt>Working in</dt><dd>Black & grey · Fine line · Lettering</dd></div>
+              <div><dt>Studio</dt><dd>Private · By appointment</dd></div>
+            </dl>
+            <p className="calligraphy calligraphy--artist" aria-hidden="true">art should feel lived in</p>
+          </div>
+        </section>
+
+        <section className="archive-section" id="works">
+          <div className="archive-heading">
+            <div>
+              <p className="eyebrow">Selected work · Real client pieces</p>
+              <h2>From the<br />archive</h2>
+            </div>
+            <p>A working folder of recent tattoos—small marks, bold lettering and larger custom compositions.</p>
+          </div>
+
+          <div className="archive-grid">
+            {archive.map(([src, title, detail], index) => (
+              <article className={`archive-card archive-card--${index + 1}`} key={src}>
+                <div className="archive-photo"><img src={src} alt={title} /></div>
+                <div className="archive-caption"><h3>{title}</h3><p>{detail}</p></div>
               </article>
             ))}
-            <p className="scribble scribble--works" aria-hidden="true">skin remembers everything</p>
-            <p className="margin-note margin-note--two">not trends.<br />not templates.<br />just yours.</p>
-          </div>
-        </section>
-
-        <section className="process" id="approach">
-          <div className="process-intro">
-            <p className="eyebrow">How it happens</p>
-            <h2>Slow craft.<br /><span className="marker">Clear intent.</span></h2>
-            <p>
-              The best tattoos feel inevitable—like they were always meant to be there.
-              My process protects the time needed to get there.
-            </p>
-          </div>
-
-          <ol className="steps">
-            <li>
-              <span>01 / Exchange</span>
-              <h3>Tell me the feeling</h3>
-              <p>Send references, placement, scale and the story underneath it all.</p>
-            </li>
-            <li>
-              <span>02 / Drawing</span>
-              <h3>Built for your body</h3>
-              <p>I draw a singular composition around your anatomy and movement.</p>
-            </li>
-            <li>
-              <span>03 / Session</span>
-              <h3>Make it permanent</h3>
-              <p>We refine placement, settle in, and create the piece at an unhurried pace.</p>
-            </li>
-          </ol>
-
-          <div className="studio-card">
-            <img src="/tattoo-detail.jpg" alt="Tattoo artist at work in a warm, quiet studio" />
-            <div>
-              <p className="eyebrow">Private studio · Quezon City</p>
-              <p>One client per day. Calm room. Sterile practice. Good music.</p>
-            </div>
+            <p className="calligraphy calligraphy--archive" aria-hidden="true">made once, kept for life</p>
           </div>
         </section>
 
         <section className="booking" id="book">
-          <p className="booking-kicker">Books open / August—October 2026</p>
-          <h2>Have a strange<br />idea in mind?</h2>
-          <a className="booking-button" href="mailto:hello@emirsoria.studio?subject=Tattoo%20project%20inquiry">
-            Start a project <span>↗</span>
-          </a>
-          <p className="booking-note">Include your idea, placement, approximate size and preferred dates.</p>
-          <p className="scribble scribble--booking" aria-hidden="true">let’s make it yours</p>
+          <p className="eyebrow">Books open · Limited monthly sessions</p>
+          <h2>Bring me your<br /><span>strange idea.</span></h2>
+          <p>Include the concept, placement, approximate size and preferred dates.</p>
+          <a className="booking-button" href="mailto:hello@emirsoria.studio?subject=Tattoo%20project%20inquiry">Start a project <span>↗</span></a>
+          <p className="calligraphy calligraphy--booking" aria-hidden="true">let’s make it yours</p>
         </section>
 
         <footer className="footer">
-          <div>
-            <p>Emir Soria®</p>
-            <p>Custom tattooing & original artwork</p>
-          </div>
-          <div className="footer-links">
-            <a href="mailto:hello@emirsoria.studio">Email</a>
-            <a href="#works">Archive</a>
-            <a href="#intro">Back to top ↑</a>
-          </div>
-          <p className="copyright">© 2026 · All pieces are one of one. Photography via Unsplash.</p>
+          <div><strong>Emir Soria®</strong><p>Custom tattooing & original artwork</p></div>
+          <nav aria-label="Footer"><a href="#artist">Artist</a><a href="#works">Work</a><a href="#intro">Top ↑</a></nav>
+          <p className="copyright">© 2026 · All artwork and photography from the artist’s archive.</p>
         </footer>
       </div>
     </main>

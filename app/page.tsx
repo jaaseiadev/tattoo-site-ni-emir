@@ -152,11 +152,11 @@ export default function Home() {
         <section className="spread artist-spread" id="artist">
           <div className="artist-portrait">
             <figure className="portrait-print">
-              <img src="/portfolio/artist-img-secondary.jpg" alt="Emir Soria surrounded by pages from his sketchbook" />
-              <figcaption>Artist portrait · Sketchbook studies · 2026</figcaption>
+              <img src="/portfolio/artist-profile.jpg" alt="Emir Soria beside a motorcycle at Agas-Agas Bridge" />
+              <figcaption>Artist portrait · On the road · 2026</figcaption>
             </figure>
             <figure className="artist-detail-print" aria-hidden="true">
-              <img src="/portfolio/compass-bird.jpg" alt="" />
+              <img src="/portfolio/artist-img-secondary.jpg" alt="" />
             </figure>
             <p className="portrait-tape">PERSONAL FILE / 02</p>
           </div>

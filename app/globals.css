@@ -215,7 +215,7 @@ img { display: block; width: 100%; }
 .artist-spread { display: grid; grid-template-columns: minmax(0,.95fr) minmax(420px,1.05fr); gap: clamp(54px,7vw,120px); align-items: center; border-top: 1px solid var(--rule); background: rgba(229,222,206,.38); }
 .artist-portrait { position: relative; min-height: 680px; }
 .portrait-print { position: absolute; top: 2%; left: 8%; width: 72%; margin: 0; padding: 12px 12px 38px; background: #f8f5ec; box-shadow: 0 14px 26px rgba(35,29,20,.25); transform: rotate(-2.4deg); }
-.portrait-print img { height: 570px; object-fit: cover; object-position: 50% 48%; filter: saturate(.72) contrast(1.04); }
+.portrait-print img { height: 570px; object-fit: cover; object-position: 50% 68%; filter: saturate(.72) contrast(1.04); }
 .portrait-print figcaption { margin-top: 10px; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 .artist-detail-print { position: absolute; right: 1%; bottom: 3%; width: 34%; margin: 0; padding: 8px 8px 27px; background: #f8f5ec; box-shadow: 0 9px 18px rgba(35,29,20,.22); transform: rotate(5deg); }
 .artist-detail-print img { height: 210px; object-fit: cover; filter: grayscale(1) contrast(1.1); }
@@ -278,11 +278,11 @@ img { display: block; width: 100%; }
 .footer nav a { border-bottom: 1px solid; }
 .copyright { grid-column: 1/-1; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 
-.index-tabs { position: fixed; z-index: 30; top: 50%; right: max(4px,calc((100vw - 1700px)/2 + 4px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
-.index-tab { position: relative; width: 88px; height: clamp(120px,17vh,165px); display: flex; align-items: center; gap: 11px; padding: 12px 15px 12px 31px; overflow: hidden; border: 1px solid rgba(17,16,14,.55); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.34); font-weight: 670; font-size: 12px; letter-spacing: .02em; writing-mode: vertical-rl; transition: filter .2s,transform .2s,box-shadow .2s; }
+.index-tabs { position: fixed; z-index: 1; top: 50%; right: max(12px,calc((100vw - 1700px)/2 - 16px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
+.index-tab { position: relative; width: 80px; height: clamp(120px,17vh,165px); display: flex; align-items: center; gap: 11px; padding: 12px 13px 12px 31px; overflow: hidden; border: 1px solid rgba(17,16,14,.55); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.34); font-weight: 670; font-size: 12px; writing-mode: vertical-rl; transition: filter .2s,transform .2s; }
 .index-tab::before { content:""; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 90 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)' opacity='.08'/%3E%3C/svg%3E"); pointer-events:none; }
-.index-tab:hover,.index-tab:focus-visible,.index-tab.is-active { filter:saturate(1.2) brightness(1.05); transform:translateX(-9px); box-shadow:8px 8px 18px rgba(0,0,0,.36),inset 4px 0 0 rgba(17,16,14,.75),inset 0 1px rgba(255,255,255,.4); outline:none; }
-.index-tab.is-active::after { content:""; position:absolute; top:10px; right:10px; width:7px; height:7px; border-radius:50%; background:var(--ink); }
+.index-tab:hover,.index-tab:focus-visible { filter:saturate(1.15) brightness(1.04); transform:translateX(4px); outline:none; }
+.index-tab.is-active { filter:saturate(1.15) brightness(1.04); }
 .index-tab span { font-family:var(--font-geist-mono),monospace; font-size:8px; }
 .tab-pink { background:var(--pink); }
 .tab-orange { background:var(--orange); }
@@ -337,7 +337,6 @@ img { display: block; width: 100%; }
   .copyright { grid-column:1; }
   .index-tabs { right:4px; gap:5px; }
   .index-tab { width:54px; height:min(22dvh,124px); padding:8px 8px 8px 22px; border-radius:0 7px 7px 0; font-size:9px; }
-  .index-tab:hover,.index-tab:focus-visible,.index-tab.is-active { transform:translateX(-4px); }
   .opening-spread::before,.artist-spread::before { width:72%; opacity:.05; }
   .opening-spread::after,.artist-spread::after { width:66%; opacity:.05; }
   .archive-section::before,.archive-section::after { width:74%; opacity:.05; }

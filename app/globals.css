@@ -74,7 +74,7 @@ img { display: block; width: 100%; }
 
 .sketchbook-stage {
   --tab-width: 38px;
-  --edge-gap: clamp(2px, .35vw, 6px);
+  --edge-gap: clamp(8px, .7vw, 12px);
   --left-overhang: clamp(24px, 4dvh, 56px);
   position: absolute;
   z-index: 1;
@@ -333,7 +333,7 @@ img { display: block; width: 100%; }
 
 @media (max-width: 760px) {
   .artist-corner-mark { top:4px; left:8px; font-size:clamp(8px,2.2vw,11px); letter-spacing:-.065em; }
-  .sketchbook-stage { --tab-width:34px; --edge-gap:2px; --left-overhang:18px; bottom:-3vw; transform:rotate(-.75deg); }
+  .sketchbook-stage { --tab-width:34px; --edge-gap:6px; --left-overhang:18px; bottom:-3vw; transform:rotate(-.75deg); }
   .sketchbook-stage::before { top:0; right:calc(var(--tab-width) - 5px); border-radius:0 18px 0 0; }
   .folio { top:6px; right:var(--tab-width); bottom:0; left:0; height:auto; border-width:1px; border-left:0; border-bottom:0; border-radius:0 12px 0 0; scroll-snap-type:none; }
   .spread { min-height:auto; padding:60px 24px 100px; }

@@ -24,10 +24,10 @@ const archive = [
 ];
 
 const sections = [
-  { id: "intro", number: "01", label: "opening", color: "pink" },
-  { id: "artist", number: "02", label: "artist", color: "orange" },
-  { id: "works", number: "03", label: "archive", color: "blue" },
-  { id: "book", number: "04", label: "booking", color: "yellow" },
+  { id: "intro", number: "I", label: "opening", color: "pink" },
+  { id: "artist", number: "II", label: "artist", color: "orange" },
+  { id: "works", number: "III", label: "archive", color: "blue" },
+  { id: "book", number: "IV", label: "booking", color: "yellow" },
 ];
 
 export default function Home() {
@@ -85,7 +85,8 @@ export default function Home() {
             onClick={() => setActiveSection(id)}
             key={id}
           >
-            <span>{number}</span> {label}
+            <span className="index-tab-number">{number}</span>
+            <span className="index-tab-label">{label}</span>
           </a>
         ))}
       </aside>

@@ -81,7 +81,7 @@ img { display: block; width: 100%; }
   overflow-y: auto;
   overscroll-behavior: contain;
   scroll-snap-type: y proximity;
-  scrollbar-color: rgba(17,16,14,.62) transparent;
+  scrollbar-color: rgba(91,72,48,.28) transparent;
   scrollbar-width: thin;
   border: 1px solid rgba(17,16,14,.28);
   border-left: 0;
@@ -96,8 +96,10 @@ img { display: block; width: 100%; }
   transform: none;
 }
 
-.folio::-webkit-scrollbar { width: 8px; }
-.folio::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 20px; background: rgba(17,16,14,.55); background-clip: padding-box; }
+.folio::-webkit-scrollbar { width: 6px; }
+.folio::-webkit-scrollbar-track { background: transparent; }
+.folio::-webkit-scrollbar-thumb { border: 1px solid transparent; border-radius: 20px; background: rgba(91,72,48,.26); background-clip: padding-box; }
+.folio::-webkit-scrollbar-thumb:hover { background: rgba(91,72,48,.42); background-clip: padding-box; }
 
 .spread {
   position: relative;
@@ -273,12 +275,13 @@ img { display: block; width: 100%; }
 .footer nav a { border-bottom: 1px solid; }
 .copyright { grid-column: 1/-1; font-family: var(--font-geist-mono),monospace; font-size: 8px; text-transform: uppercase; }
 
-.index-tabs { position: fixed; z-index: 1; top: 50%; right: max(4px,calc(100vw - 1752px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
-.index-tab { position: relative; width: 80px; height: clamp(120px,17vh,165px); display: flex; align-items: center; gap: 11px; padding: 12px 13px 12px 31px; overflow: hidden; border: 1px solid rgba(17,16,14,.38); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.34); backdrop-filter: blur(3px); font-weight: 670; font-size: 12px; writing-mode: vertical-rl; transition: filter .2s,transform .2s,background-color .2s; }
+.index-tabs { position: fixed; z-index: 1; top: 50%; right: max(4px,calc(100vw - 1742px)); display: flex; flex-direction: column; gap: 7px; transform: translateY(-50%); }
+.index-tab { position: relative; width: 62px; height: clamp(120px,17vh,165px); display: flex; align-items: flex-start; justify-content: flex-start; gap: 9px; padding: 11px 8px 11px 23px; overflow: hidden; border: 1px solid rgba(17,16,14,.38); border-left: 0; border-radius: 0 11px 11px 0; box-shadow: 5px 5px 12px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.34); backdrop-filter: blur(3px); font-weight: 670; font-size: 11px; writing-mode: vertical-rl; transition: filter .2s,transform .2s,background-color .2s; }
 .index-tab::before { content:""; position:absolute; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 90 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='t'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23t)' opacity='.08'/%3E%3C/svg%3E"); pointer-events:none; }
 .index-tab:hover,.index-tab:focus-visible { filter:saturate(1.15) brightness(1.04); transform:translateX(4px); outline:none; }
 .index-tab.is-active { filter:saturate(1.15) brightness(1.04); }
-.index-tab span { font-family:var(--font-geist-mono),monospace; font-size:8px; }
+.index-tab-number { font-family:var(--font-geist-mono),monospace; font-size:8px; }
+.index-tab-label { font-family:var(--font-geist-sans),Arial,sans-serif; }
 .tab-pink { background:rgba(235,138,170,.42); }
 .tab-orange { background:rgba(214,111,55,.42); }
 .tab-blue { background:rgba(87,148,186,.42); }
@@ -333,7 +336,7 @@ img { display: block; width: 100%; }
   .footer { grid-template-columns:1fr; gap:28px; }
   .copyright { grid-column:1; }
   .index-tabs { right:4px; gap:5px; }
-  .index-tab { width:54px; height:min(22dvh,124px); padding:8px 8px 8px 22px; border-radius:0 7px 7px 0; font-size:9px; }
+  .index-tab { width:54px; height:min(22dvh,124px); align-items:flex-start; padding:8px 6px 8px 18px; border-radius:0 7px 7px 0; font-size:9px; }
   .opening-spread::before,.artist-spread::before { width:72%; opacity:.05; }
   .opening-spread::after,.artist-spread::after { width:66%; opacity:.05; }
   .archive-section::before,.archive-section::after { width:74%; opacity:.05; }

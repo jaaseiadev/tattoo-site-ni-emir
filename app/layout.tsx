@@ -28,18 +28,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: base,
-    title: "Emir Soria — Independent Tattoo Artist",
+    title: "Emir Casil Cortez — Independent Tattoo Artist",
     description:
-      "Custom blackwork, fine line, and illustrative tattooing by Emir Soria in Manila and beyond.",
+      "Custom blackwork, fine line, and illustrative tattooing by Emir Casil Cortez in Manila and beyond.",
     openGraph: {
-      title: "Emir Soria — Marks Made to Live With",
+      title: "Emir Casil Cortez — Marks Made to Live With",
       description: "Custom tattooing and original artwork in Manila and beyond.",
       type: "website",
-      images: [{ url: socialImage, width: 1200, height: 630, alt: "Emir Soria tattoo portfolio" }],
+      images: [{ url: socialImage, width: 1200, height: 630, alt: "Emir Casil Cortez tattoo portfolio" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Emir Soria — Marks Made to Live With",
+      title: "Emir Casil Cortez — Marks Made to Live With",
       description: "Custom tattooing and original artwork in Manila and beyond.",
       images: [socialImage],
     },

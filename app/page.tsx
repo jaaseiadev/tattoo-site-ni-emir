@@ -183,7 +183,7 @@ export default function Home() {
         <section className="spread artist-spread" id="artist">
           <div className="artist-portrait">
             <figure className="portrait-print">
-              <img src="/portfolio/artist-profile.jpg" alt="Emir Soria beside a motorcycle at Agas-Agas Bridge" />
+              <img src="/portfolio/artist-profile.jpg" alt="Emir Casil Cortez beside a motorcycle at Agas-Agas Bridge" />
               <figcaption>Artist portrait · On the road · 2026</figcaption>
             </figure>
             <figure className="artist-detail-print" aria-hidden="true">
@@ -195,7 +195,7 @@ export default function Home() {
           <div className="artist-copy">
             <p className="eyebrow">Behind the needle</p>
             <h2 className="desktop-artist-heading">Meet<br />Emir.</h2>
-            <h2 className="mobile-artist-heading">Meet<br /><span className="marker">Emir Casil</span></h2>
+            <h2 className="mobile-artist-heading">Meet<br /><span className="marker">Emir Casil Cortez</span></h2>
             <p className="artist-lede">
               A tattoo artist drawn to bold symbols, lived-in lettering and images that feel
               personal before they feel polished.
@@ -259,7 +259,7 @@ export default function Home() {
         </section>
 
         <footer className="footer">
-          <div><strong>Emir Soria®</strong><p>Custom tattooing & original artwork</p></div>
+          <div><strong>Emir Casil Cortez®</strong><p>Custom tattooing & original artwork</p></div>
           <nav className="footer-socials" aria-label="Contact Emir">
             <a
               href="https://www.instagram.com/emirsoria/"

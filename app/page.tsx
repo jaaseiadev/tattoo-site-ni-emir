@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 const slides = [
   { src: "/portfolio/cat-chestpiece.jpg", title: "Feral Study", detail: "Illustrative chest piece" },
@@ -33,6 +33,7 @@ const sections = [
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSection, setActiveSection] = useState("intro");
+  const archiveTrackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = window.setInterval(
@@ -66,6 +67,23 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const archiveTrack = archiveTrackRef.current;
+    const phoneViewport = window.matchMedia("(max-width: 560px)");
+
+    if (!archiveTrack || !phoneViewport.matches) return;
+
+    const previewCard = archiveTrack.querySelectorAll<HTMLElement>(".archive-card")[1];
+    if (!previewCard) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      archiveTrack.scrollLeft = previewCard.offsetLeft
+        - (archiveTrack.clientWidth - previewCard.offsetWidth) / 2;
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   const showPrevious = () => {
     setActiveSlide((current) => (current - 1 + slides.length) % slides.length);
   };
@@ -92,6 +110,10 @@ export default function Home() {
       <p className="artist-corner-mark">
         Emir Casil Cortez - <span>Tattoo Artist</span>
       </p>
+      <nav className="mobile-top-nav" aria-label="Portfolio shortcuts">
+        <a href="#works">Recent Works</a>
+        <a href="#artist">Meet Emir Casil</a>
+      </nav>
       <div className="sketchbook-stage">
         <aside className="index-tabs" aria-label="Folder index">
           {sections.map(({ id, number, label, color }) => (
@@ -209,7 +231,17 @@ export default function Home() {
             <p>A working folder of recent tattoos—small marks, bold lettering and larger custom compositions.</p>
           </div>
 
-          <div className="archive-grid">
+          <p className="archive-scroll-hint" aria-hidden="true">
+            <span>←</span> Swipe through the archive <span>→</span>
+          </p>
+
+          <div
+            className="archive-grid"
+            ref={archiveTrackRef}
+            role="region"
+            aria-label="Recent tattoo works. Swipe horizontally to explore."
+            tabIndex={0}
+          >
             {archive.map(([src, title, detail], index) => (
               <article className={`archive-card archive-card--${index + 1}`} key={src}>
                 <div className="archive-photo"><img src={src} alt={title} /></div>

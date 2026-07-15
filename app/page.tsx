@@ -110,10 +110,6 @@ export default function Home() {
       <p className="artist-corner-mark">
         Emir Casil Cortez - <span>Tattoo Artist</span>
       </p>
-      <nav className="mobile-top-nav" aria-label="Portfolio shortcuts">
-        <a href="#works">Recent Works</a>
-        <a href="#artist">Meet Emir Casil</a>
-      </nav>
       <div className="sketchbook-stage">
         <aside className="index-tabs" aria-label="Folder index">
           {sections.map(({ id, number, label, color }) => (
@@ -131,6 +127,7 @@ export default function Home() {
         </aside>
 
         <div className="folio">
+        <p className="mobile-sketchbook-title">Recent Works</p>
         <section className="spread opening-spread" id="intro">
           <div className="slideshow" aria-label="Featured tattoo work slideshow">
             <div className="slide-stack">
@@ -197,7 +194,8 @@ export default function Home() {
 
           <div className="artist-copy">
             <p className="eyebrow">Behind the needle</p>
-            <h2>Meet<br />Emir.</h2>
+            <h2 className="desktop-artist-heading">Meet<br />Emir.</h2>
+            <h2 className="mobile-artist-heading">Meet<br />Emir Casil</h2>
             <p className="artist-lede">
               A tattoo artist drawn to bold symbols, lived-in lettering and images that feel
               personal before they feel polished.

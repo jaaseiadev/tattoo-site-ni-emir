@@ -72,7 +72,8 @@ img { display: block; width: 100%; }
   -webkit-box-decoration-break: clone;
 }
 
-.mobile-top-nav,
+.mobile-sketchbook-title,
+.mobile-artist-heading,
 .archive-scroll-hint { display: none; }
 
 .sketchbook-stage {
@@ -410,35 +411,22 @@ img { display: block; width: 100%; }
 @media (max-width: 560px) {
   .artist-corner-mark { display: none; }
 
-  .mobile-top-nav {
+  .mobile-sketchbook-title {
     position: absolute;
     z-index: 5;
-    top: 4px;
-    left: 8px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    top: 18px;
+    left: 24px;
+    display: block;
     margin: 0;
-    font-family: var(--font-geist-mono), monospace;
-    font-size: clamp(7px, 2vw, 10px);
-    font-weight: 700;
+    font-family: var(--font-geist-sans), Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
     line-height: 1;
-    letter-spacing: .01em;
-    text-transform: uppercase;
-    white-space: nowrap;
+    letter-spacing: -.035em;
   }
 
-  .mobile-top-nav a {
-    background: linear-gradient(transparent 60%, rgba(237,212,71,.9) 60% 94%, transparent 94%);
-  }
-
-  .mobile-top-nav a + a::before {
-    content: "/";
-    display: inline-block;
-    margin-right: 14px;
-    color: rgba(17,16,14,.42);
-    background: var(--paper);
-  }
+  .desktop-artist-heading { display: none; }
+  .mobile-artist-heading { display: block; }
 
   .archive-section {
     padding-right: 0;

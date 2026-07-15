@@ -156,7 +156,7 @@ export default function Home() {
               Every tattoo begins with a conversation and ends as something only you can carry.
             </p>
             <a className="text-link" href="#artist">Meet the artist <span>↓</span></a>
-            <img className="calligraphy calligraphy--opening" src="/name-cursive.png" alt="" aria-hidden="true" />
+            <span className="calligraphy calligraphy--opening" aria-hidden="true" />
             <p className="pencil-note">original work only<br />no repeats →</p>
           </div>
         </section>
@@ -196,7 +196,7 @@ export default function Home() {
               <div><dt>Working in</dt><dd>Black & grey · Fine line · Lettering</dd></div>
               <div><dt>Studio</dt><dd>Private · By appointment</dd></div>
             </dl>
-            <img className="calligraphy calligraphy--artist" src="/name-cursive.png" alt="" aria-hidden="true" />
+            <span className="calligraphy calligraphy--artist" aria-hidden="true" />
           </div>
         </section>
 
@@ -216,7 +216,7 @@ export default function Home() {
                 <div className="archive-caption"><h3>{title}</h3><p>{detail}</p></div>
               </article>
             ))}
-            <img className="calligraphy calligraphy--archive" src="/name-cursive.png" alt="" aria-hidden="true" />
+            <span className="calligraphy calligraphy--archive" aria-hidden="true" />
           </div>
         </section>
 
@@ -225,7 +225,7 @@ export default function Home() {
           <h2>Bring me your<br /><span>strange idea.</span></h2>
           <p>Include the concept, placement, approximate size and preferred dates.</p>
           <a className="booking-button" href="mailto:hello@emirsoria.studio?subject=Tattoo%20project%20inquiry">Start a project <span>↗</span></a>
-          <img className="calligraphy calligraphy--booking" src="/name-cursive.png" alt="" aria-hidden="true" />
+          <span className="calligraphy calligraphy--booking" aria-hidden="true" />
         </section>
 
         <footer className="footer">

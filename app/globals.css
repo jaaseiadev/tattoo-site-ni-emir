@@ -419,7 +419,7 @@ img { display: block; width: 100%; }
     display: block;
     margin: 0;
     font-family: var(--font-geist-sans), Arial, sans-serif;
-    font-size: 13px;
+    font-size: clamp(20px, 5.8vw, 27px);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -.035em;

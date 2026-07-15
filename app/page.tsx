@@ -260,6 +260,33 @@ export default function Home() {
 
         <footer className="footer">
           <div><strong>Emir Soria®</strong><p>Custom tattooing & original artwork</p></div>
+          <nav className="footer-socials" aria-label="Contact Emir">
+            <a
+              href="https://www.instagram.com/emirsoria/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram — opens in a new tab"
+              title="Instagram"
+            >
+              <img src="/icons/instagram-sketch.png" alt="" />
+            </a>
+            <a
+              href="https://www.facebook.com/emirsoria/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook — opens in a new tab"
+              title="Facebook"
+            >
+              <img src="/icons/facebook-sketch.png" alt="" />
+            </a>
+            <a
+              href="mailto:hello@emirsoria.studio?subject=Tattoo%20project%20inquiry"
+              aria-label="Email Emir"
+              title="Email"
+            >
+              <img src="/icons/gmail-sketch.png" alt="" />
+            </a>
+          </nav>
           <nav aria-label="Footer"><a href="#artist">Artist</a><a href="#works">Work</a><a href="#intro">Top ↑</a></nav>
           <p className="copyright">© 2026 · All artwork and photography from the artist’s archive.</p>
         </footer>

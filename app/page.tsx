@@ -194,7 +194,7 @@ export default function Home() {
 
           <div className="artist-copy">
             <p className="eyebrow">Behind the needle</p>
-            <h2 className="desktop-artist-heading">Meet<br />Emir.</h2>
+            <h2 className="desktop-artist-heading">Meet<br /><span className="marker">Emir Casil Cortez</span></h2>
             <h2 className="mobile-artist-heading">Meet<br /><span className="marker">Emir Casil Cortez</span></h2>
             <p className="artist-lede">
               A tattoo artist drawn to bold symbols, lived-in lettering and images that feel
